@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="InputManager.c">
+      <Filter>Scripts\Core Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c" />
+    <ClCompile Include="EventSystem.c">
+      <Filter>Scripts\Core Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugUtil.c">
+      <Filter>Scripts\Core Scripts</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{b8b30d08-5810-4c6c-ac14-15c1e4e0b9f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{df2cfa6d-4755-4095-9ae9-390412db69a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Core Scripts">
+      <UniqueIdentifier>{816910ac-7eed-4332-aa1c-f204eebce641}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="InputManager.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugUtil.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
