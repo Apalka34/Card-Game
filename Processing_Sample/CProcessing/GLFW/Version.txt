@@ -1,5 +1,0 @@
-GLFW Version
-3.3.2
-
-Date
-January 20, 2020

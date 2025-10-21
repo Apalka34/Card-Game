@@ -8,7 +8,6 @@
     <ClCompile Include="EventSystem.c">
       <Filter>Scripts\Core Scripts</Filter>
     </ClCompile>
-    <ClCompile Include="DebugUtil.c">
       <Filter>Scripts\Core Scripts</Filter>
     </ClCompile>
   </ItemGroup>

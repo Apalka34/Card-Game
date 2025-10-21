@@ -197,7 +197,6 @@ xcopy "$(ProjectDir)Assets\*" "$(OutDir)Assets\" /s /r /y /q</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DebugUtil.c" />
     <ClCompile Include="EventSystem.c" />
     <ClCompile Include="InputManager.c" />
     <ClCompile Include="main.c" />

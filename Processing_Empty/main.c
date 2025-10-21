@@ -18,6 +18,8 @@
 #include "InputManager.h"
 
 InputScheme CurrentInputScheme = KEYBOARD_MOUSE;
+float StickDeadzone = 0.075f;
+
 #define REBINDEABLE_INPUT_EVENTS 1
 struct InputEvent inputEvents[REBINDEABLE_INPUT_EVENTS];
 void EscapeCurrent() {
@@ -45,7 +47,9 @@ void game_update(void)
 	// check input, update simulation, render etc.
 
 	//int cardInput = GetCardInput();
-	// UpdateCurrentDevice(); | Not sure how I would want to handle cards w/ Gamepad yet. For now, just stuck on KEYBOARD_MOUSE
+	if (UpdateCurrentDevice()) {
+		DebugPrintf("Changed to input device %i\n", CurrentInputScheme);
+	}
 	for (int i = 0; i < REBINDEABLE_INPUT_EVENTS; i++) { AttemptInputEvent(inputEvents[i]); }
 }
 
