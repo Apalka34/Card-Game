@@ -17,11 +17,11 @@
 #include "EventSystem.h"
 #include "InputManager.h"
 
+InputScheme CurrentInputScheme = KEYBOARD_MOUSE;
 #define REBINDEABLE_INPUT_EVENTS 1
 struct InputEvent inputEvents[REBINDEABLE_INPUT_EVENTS];
-int hadInput;
-void GotAnInput(/*void* parameters*/) {
-	hadInput = 1;
+void EscapeCurrent() {
+	DebugPrintf("Escaped through input source %i\n", CurrentInputScheme);
 }
 
 // use CP_Engine_SetNextGameState to specify this function as the initialization function
@@ -29,8 +29,13 @@ void GotAnInput(/*void* parameters*/) {
 void game_init(void)
 {
 	// initialize variables and CProcessing settings for this gamestate
+	
 	//CP_System_FullscreenAdvanced(1920, 1080);
-	inputEvents[0] = CreateInputEvent(CreateCP_ANY(CP_KEY_INPUT, KEY_ESCAPE), GotAnInput, 0);
+	memcpy(inputEvents, (InputEvent[]){ // I prefer this than setting by index such as commented line below
+		CreateInputEvent(CreateCP_ANY(KEY_ESCAPE, -1, GAMEPAD_B), EscapeCurrent)
+	}, sizeof(inputEvents));
+	//inputEvents[0] = CreateInputEvent(CreateCP_ANY(KEY_ESCAPE, -1, GAMEPAD_B), EscapeCurrent);
+	//SetCP_ANY(&inputEvents[0].input, CP_MOUSE_INPUT, MOUSE_BUTTON_RIGHT); | Rebind example
 }
 
 // use CP_Engine_SetNextGameState to specify this function as the update function
@@ -38,18 +43,10 @@ void game_init(void)
 void game_update(void)
 {
 	// check input, update simulation, render etc.
-	hadInput = 0;
-	int hadInputInternal = 0;
 
-	int cardInput = GetCardInput();
-	for (int i = 0; i < REBINDEABLE_INPUT_EVENTS; i++) {
-		if (AttemptFirePayload(inputEvents[i])) {
-			hadInputInternal = 1;
-			SetCP_ANY(&inputEvents[0].input, CP_MOUSE_INPUT, MOUSE_BUTTON_LEFT);
-		}
-	}
-	
-	DebugPrintf("RAN LOOP: %i | %i -> %i\n", cardInput, hadInput, hadInputInternal);
+	//int cardInput = GetCardInput();
+	// UpdateCurrentDevice(); | Not sure how I would want to handle cards w/ Gamepad yet. For now, just stuck on KEYBOARD_MOUSE
+	for (int i = 0; i < REBINDEABLE_INPUT_EVENTS; i++) { AttemptInputEvent(inputEvents[i]); }
 }
 
 // use CP_Engine_SetNextGameState to specify this function as the exit function

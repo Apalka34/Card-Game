@@ -2,7 +2,7 @@
 #include "EventSystem.h"
 #include "InputManager.h"
 
-int AttemptFirePayload(struct InputEvent event) {
+int AttemptInputEvent(struct InputEvent event) {
 	if (CP_Input_Triggered(event.input)) {
 		event.eventTarget(/*event.payload()*/);
 		return 1;
@@ -10,11 +10,10 @@ int AttemptFirePayload(struct InputEvent event) {
 	return 0;
 }
 
-struct InputEvent CreateInputEvent(struct CP_ANY originalInput, Function target, Payload payload) {
-	return (struct InputEvent) {
+struct InputEvent CreateInputEvent(CP_ANY originalInput, Function target) {
+	return (InputEvent) {
 		.originalInput = originalInput,
 		.input = originalInput,
 		.eventTarget = target,
-		.payload = payload
 	};
 }
