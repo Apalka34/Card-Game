@@ -197,14 +197,22 @@ xcopy "$(ProjectDir)Assets\*" "$(OutDir)Assets\" /s /r /y /q</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DebugUtil.c" />
+    <ClCompile Include="DynamicMemoryManager.c" />
     <ClCompile Include="EventSystem.c" />
     <ClCompile Include="InputManager.c" />
+    <ClCompile Include="Legacy.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="main.c" />
+    <ClCompile Include="Renderer.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DebugUtil.h" />
+    <ClInclude Include="DynamicMemoryManager.h" />
     <ClInclude Include="EventSystem.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Renderer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

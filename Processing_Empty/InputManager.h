@@ -18,16 +18,5 @@ int UpdateCurrentDevice(void);
 
 int GetCardInput(void);
 
-
 extern float StickDeadzone;
-/// <summary>
-/// Gets whether the input CP_Vector from the stick should get get ignored by basis of both
-/// the x and y value being lower than or equal to the StickDeadzone threshold
-/// </summary>
-/// <param name="stick">The input CP_Vector of the stick</param>
-/// <returns>1 if stick should be ignored; 0 if stick should not be ignored</returns>
-static int HasStickInput(CP_Vector stickValue) {
-	float xAbs = stickValue.x < 0 ? -stickValue.x : stickValue.x;
-	float yAbs = stickValue.y < 0 ? -stickValue.y : stickValue.y;
-	return xAbs > StickDeadzone || yAbs > StickDeadzone;
-}
+static int HasStickInput(CP_Vector stickValue);

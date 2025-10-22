@@ -8,6 +8,14 @@
     <ClCompile Include="EventSystem.c">
       <Filter>Scripts\Core Scripts</Filter>
     </ClCompile>
+    <ClCompile Include="Renderer.c">
+      <Filter>Scripts\Core Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="Legacy.c" />
+    <ClCompile Include="DynamicMemoryManager.c">
+      <Filter>Scripts\Core Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugUtil.c">
       <Filter>Scripts\Core Scripts</Filter>
     </ClCompile>
   </ItemGroup>
@@ -30,6 +38,12 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="DebugUtil.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicMemoryManager.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

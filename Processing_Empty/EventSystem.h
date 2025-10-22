@@ -2,7 +2,7 @@
 
 #include "InputManager.h"
 
-typedef void (*Function)(/*void* payload*/);
+typedef void (*Function)();
 typedef struct InputEvent {
 	CP_ANY originalInput;
 	CP_ANY input;
