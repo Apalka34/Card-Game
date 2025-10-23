@@ -3,7 +3,7 @@
 #include "cprocessing.h"
 
 typedef enum InputScheme { KEYBOARD_MOUSE = 0, GAMEPAD = 2 } InputScheme; // 0 vs 1 gets handled by usesMouse
-extern InputScheme CurrentInputScheme;
+static InputScheme CurrentInputScheme = KEYBOARD_MOUSE;
 typedef enum InputSource { CP_KEY_INPUT, CP_MOUSE_INPUT, CP_GAMEPAD_INPUT } InputSource;
 typedef struct CP_ANY
 {
@@ -18,5 +18,5 @@ int UpdateCurrentDevice(void);
 
 int GetCardInput(void);
 
-extern float StickDeadzone;
+static float StickDeadzone = 0.075f;
 static int HasStickInput(CP_Vector stickValue);

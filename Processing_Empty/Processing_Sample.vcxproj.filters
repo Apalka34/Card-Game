@@ -12,11 +12,11 @@
       <Filter>Scripts\Core Scripts</Filter>
     </ClCompile>
     <ClCompile Include="Legacy.c" />
-    <ClCompile Include="DynamicMemoryManager.c">
-      <Filter>Scripts\Core Scripts</Filter>
-    </ClCompile>
     <ClCompile Include="DebugUtil.c">
-      <Filter>Scripts\Core Scripts</Filter>
+      <Filter>Scripts\Util Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicMemoryManager.c">
+      <Filter>Scripts\Util Scripts</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -28,6 +28,9 @@
     </Filter>
     <Filter Include="Scripts\Core Scripts">
       <UniqueIdentifier>{816910ac-7eed-4332-aa1c-f204eebce641}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Util Scripts">
+      <UniqueIdentifier>{6ce1d29a-ad82-4dc9-8590-b88771fb220a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -44,6 +47,9 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="DynamicMemoryManager.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Defaults.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

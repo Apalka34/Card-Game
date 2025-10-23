@@ -209,6 +209,7 @@ xcopy "$(ProjectDir)Assets\*" "$(OutDir)Assets\" /s /r /y /q</Command>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DebugUtil.h" />
+    <ClInclude Include="Defaults.h" />
     <ClInclude Include="DynamicMemoryManager.h" />
     <ClInclude Include="EventSystem.h" />
     <ClInclude Include="InputManager.h" />

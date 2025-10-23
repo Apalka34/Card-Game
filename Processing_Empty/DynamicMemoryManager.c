@@ -1,10 +1,8 @@
 #include <stdlib.h>
+#include "cprocessing.h"
 #include "DebugUtil.h"
+#include "DynamicMemoryManager.h"
 
-typedef struct DynamicVariable {
-    void* value;
-    struct DynamicVariable* next;
-} DynamicVariable;
 DynamicVariable* firstDynamicVariable = NULL;
 DynamicVariable* lastDynamicVariable = NULL;
 
@@ -31,13 +29,20 @@ void* CreateDynamicVariable(size_t size) {
     }
     else {
         lastDynamicVariable->next = node;
+        lastDynamicVariable = node;
     }
 
     DebugPrintf("reserved memory using node %p for variable %p\n", node, node->value);
 
     return data;
 }
-void FreeDynamicVariables(void) {
+CP_Image CreateDynamicImage(const char* filepath) {
+    CP_Image image = CP_Image_Load(filepath);
+    DynamicVariable* var = CreateDynamicVariable(sizeof(CP_Image));
+    var->value = image;
+    return image;
+}
+void FreeAllDynamicVariables(void) {
     DynamicVariable* node = firstDynamicVariable;
     while (node) {
         DynamicVariable* next = node->next;
