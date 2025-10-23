@@ -33,7 +33,7 @@ void EscapeCurrent() {
 void ToggleCircle() { circle->currentlyEnabled = !circle->currentlyEnabled; }
 void ToggleRect() { rect->currentlyEnabled = !rect->currentlyEnabled; }
 void ToggleTrig() {
-	UIElement* trig = GetLastChild(*circle);
+	UIElement* trig = circle->firstChild->nextSibling;
 	trig->currentlyEnabled = !trig->currentlyEnabled;
 }
 
