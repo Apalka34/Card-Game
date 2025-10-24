@@ -1,6 +1,6 @@
 #pragma once
 
-enum FunctionVariant { F2, F3, F4, F5, F6, F7, F8, F9, IMG, IMG_A, IMG_S, IMG_SA, TXT, TXT_B };
+enum FunctionVariant { F2, F3, F4, F5, F6, F7, F8, F9, TXT, TXT_B, IMG, IMG_A, IMG_S, IMG_SA };
 typedef struct UIElement UIElement;
 
 typedef struct DrawSettings {
@@ -9,6 +9,7 @@ typedef struct DrawSettings {
 	float strokeWeight;
 	CP_LINE_CAP_MODE lineCapMode;
 	CP_LINE_JOINT_MODE lineJointMode;
+	CP_Font textFont;
 	float textSize;
 	CP_TEXT_ALIGN_HORIZONTAL textAlignH;
 	CP_TEXT_ALIGN_VERTICAL textAlignV;
@@ -22,18 +23,18 @@ typedef union DrawFunction { // Well this is horrendous
 	void (*f7)(float, float, float, float, float, float, float);
 	void (*f8)(float, float, float, float, float, float, float, float);
 	void (*f9)(float, float, float, float, float, float, float, float, float);
+	void (*txt)(const char* text, float x, float y);
+	void (*txtB)(const char* text, float x, float y, float rowWidth);
 	void (*img)(CP_Image img, float x, float y, float w, float h, int alpha);
 	void (*imgA)(CP_Image img, float x, float y, float w, float h, int alpha, float degrees);
 	void (*imgS)(CP_Image img, float x, float y, float w, float h, float u0, float v0, float u1, float v1, int alpha);
 	void (*imgSA)(CP_Image img, float x, float y, float w, float h, float u0, float v0, float u1, float v1, int alpha, float degrees);
-	void (*txt)(const char* text, float x, float y);
-	void (*txtB)(const char* text, float x, float y, float rowWidth);
 } DrawFunction;
 typedef union DrawParam { // float is first in both as its most used so this minimizes explicitely saying which type I want from the union
 	float f;
 	int i;
-	CP_Image image;
 	char* text;
+	CP_Image image;
 } DrawParam;
 typedef union DrawParamChange {
 	float (*f)(UIElement _this); // if an object has any dynamic movement, it'll be constant, based off the parent, or based off sibling index. UIElement has all 3

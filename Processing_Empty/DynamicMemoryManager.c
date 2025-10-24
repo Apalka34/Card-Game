@@ -42,6 +42,18 @@ CP_Image CreateDynamicImage(const char* filepath) {
     var->value = image;
     return image;
 }
+CP_Font CreateDynamicFont(const char* filepath) {
+    CP_Font font = CP_Font_Load(filepath);
+    DynamicVariable* var = CreateDynamicVariable(sizeof(CP_Font));
+    var->value = font;
+    return font;
+}
+CP_Sound CreateDynamicSound(const char* filepath) {
+    CP_Sound sound = CP_Sound_Load(filepath);
+    DynamicVariable* var = CreateDynamicVariable(sizeof(CP_Sound));
+    var->value = sound;
+    return sound;
+}
 void FreeAllDynamicVariables(void) {
     DynamicVariable* node = firstDynamicVariable;
     while (node) {

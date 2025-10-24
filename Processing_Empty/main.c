@@ -51,7 +51,7 @@ void game_init(void)
 		CreateInputEvent(CreateCP_ANY(KEY_T, -1, -1), ToggleTrig)
 	}, sizeof(inputEvents));
 
-	circle = CreateUIElement(NULL, (DrawSettings) { .drawColor = CP_Color_Create(255, 0, 0, 255), .textAlignH = CP_TEXT_ALIGN_H_CENTER }, (DrawFunction) { .f3 = CP_Graphics_DrawCircle }, F3, 3,
+	circle = CreateUIElement(NULL, (DrawSettings) { .drawColor = CP_Color_Create(255, 0, 0, 255) }, (DrawFunction) { .f3 = CP_Graphics_DrawCircle }, F3, 3,
 							 (DrawParam[]) { CP_System_GetWindowWidth() / 2.F, CP_System_GetWindowHeight() / 2.F, 50.F },
 							 (DrawParamChange[]) { Float0, Float0, Float0 });
 	rect = CreateUIElement(circle, (DrawSettings) { .drawColor = CP_Color_Create(0, 255, 0, 255) }, (DrawFunction) { .f6 = CP_Graphics_DrawRectAdvanced }, F6, 6,
@@ -63,7 +63,7 @@ void game_init(void)
 	CreateUIElement(rect, (DrawSettings) { NO_COLOR }, (DrawFunction) { .img = CP_Image_Draw }, IMG, 6,
 					(DrawParam[]) { { .image = CreateDynamicImage("./Assets/DigiPen_RED.png") }, CP_System_GetWindowWidth() / 2.F, CP_System_GetWindowHeight() / 2.F, 1026.F / 4.F, 249.F / 4.F, {.i = 200} },
 					(DrawParamChange[]) { { .none = NO_INPUT }, Float0, Float0, Float0, Float0, { .i = Int0 } });
-	CreateUIElement(circle, (DrawSettings) { .drawColor = CP_Color_Create(255, 0, 255, 128), .strokeColor = CP_Color_Create(0, 255, 0, 255) }, (DrawFunction) { .txtB = CP_Font_DrawTextBox }, TXT_B, 4,
+	CreateUIElement(circle, (DrawSettings) { .drawColor = CP_Color_Create(255, 0, 0, 255 ), .textAlignH = CP_TEXT_ALIGN_H_CENTER }, (DrawFunction) { .txtB = CP_Font_DrawTextBox }, TXT_B, 4,
 					(DrawParam[]) { { .text = "My Functionality Example" }, CP_System_GetWindowWidth() / 2.F - 50.F, 20.F, 100.F },
 					(DrawParamChange[]) { { .none = NO_INPUT }, Float0, Float0, Float0 });
 }
